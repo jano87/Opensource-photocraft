@@ -985,7 +985,6 @@ pub const HIDDEN_UNTIL_IMPLEMENTED: &[&str] = &[
     "tools.enableFlickPanning",
     "tools.varyRoundBrushHardnessOnHud",
     "tools.showTransformationValues",
-    "fileHandling.imagePreviews",
     "fileHandling.saveInBackground",
     "fileHandling.ignoreExifProfileTag",
     "fileHandling.maximizePsdCompatibility",
