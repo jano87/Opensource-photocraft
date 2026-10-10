@@ -269,6 +269,8 @@
 	Layer via Cut	Ebene durch Ausschneiden
 	Layer From Background…	Ebene aus Hintergrund…
 	Layer from Background…	Ebene aus Hintergrund…
+	Background from Layer	Hintergrund aus Ebene
+	Background From Layer	Hintergrund aus Ebene
 	New Shape Layer	Neue Formebene
 	New Type Layer	Neue Textebene
 	New Fill Layer	Neue Füllebene
@@ -1578,6 +1580,8 @@
 	Efficiency: 100%	Effizienz: 100 %
 	Ellipse Tool	Ellipsen-Werkzeug
 	Elliptical Marquee Tool	Ellipsenauswahl-Werkzeug
+	Single Row Marquee Tool	Auswahlwerkzeug (einzelne Zeile)
+	Single Column Marquee Tool	Auswahlwerkzeug (einzelne Spalte)
 	Emboss	Relief
 	Eraser	Radiergummi
 	Eraser Tool	Radiergummi-Werkzeug
@@ -1895,6 +1899,7 @@
 	Show only crosshair while painting	Beim Malen nur Fadenkreuz zeigen
 	Show slice numbers	Slice-Nummern anzeigen
 	Show tooltips	Tooltips anzeigen
+	Show highlight on rollover	Hervorhebung bei Rollover anzeigen
 	Show bounding box when dragging layer	Begrenzungsrahmen beim Ziehen einer Ebene anzeigen
 	System title bar	System-Titelleiste
 	Show transformation values	Transformationswerte anzeigen
