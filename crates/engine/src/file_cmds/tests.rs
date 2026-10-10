@@ -135,6 +135,27 @@ fn save_a_copy_keeps_path_and_dirty_state() {
     assert!(s.execute("file.saveACopy", json!({})).is_err());
 }
 
+/// Preferences › File Handling › Image Previews decides whether a PSD gets Photoshop's
+/// thumbnail resource (1036): Always and Ask When Saving write it, Never doesn't.
+#[test]
+fn image_previews_preference_controls_the_psd_thumbnail() {
+    use crate::prefs::Ask;
+    let dir = tmp("previews");
+    let mut s = session(300, 200, 16);
+    let has_thumbnail = |path: &str| {
+        let file = photocraft_psd::PsdFile::from_bytes(&std::fs::read(path).unwrap()).unwrap();
+        file.resources.iter().any(|r| r.id == photocraft_psd::resources::ids::THUMBNAIL)
+    };
+    for (ask, expect) in [(Ask::Always, true), (Ask::Never, false), (Ask::Ask, true)] {
+        s.edit_prefs(|p| p.file_handling.image_previews = ask);
+        let out = join(&dir, &format!("{ask:?}.psd"));
+        s.execute("file.saveACopy", json!({"path": out})).unwrap();
+        assert_eq!(has_thumbnail(&out), expect, "{ask:?}");
+        let png = join(&dir, &format!("{ask:?}.png"));
+        s.execute("file.saveACopy", json!({"path": png})).unwrap();
+    }
+}
+
 #[test]
 fn open_as_forces_the_decoder() {
     let dir = tmp("openas");
